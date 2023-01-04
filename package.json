@@ -15,11 +15,12 @@
     "access": "public"
   },
   "scripts": {
-    "predeploy" : "npm run build",
-    "deploy" : "gh-pages -d build",
+    "predeploy" : "npm run build && npm run export",
+    "deploy" : "touch ./out/.nojekyll && gh-pages -t true -d out/ -r https://github.com/e-serenity/solana-pay-starter.git",
     "clean": "shx rm -rf .next",
     "dev": "next dev",
     "build": "yarn clean && next build",
+    "export": "next export",
     "start": "next start",
     "lint": "next lint"
   },
